@@ -6,10 +6,9 @@ import net.kyrptonaught.customportalapi.PerWorldPortals;
 import net.kyrptonaught.customportalapi.portal.PortalIgnitionSource;
 import net.kyrptonaught.customportalapi.util.ColorUtil;
 import net.kyrptonaught.customportalapi.util.PortalLink;
-import net.minecraft.registry.Registries;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
-import net.minecraft.registry.Registry;
+import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,9 +55,9 @@ public class DatapackPortalsMod implements ModInitializer {
             if (ignitionType.equalsIgnoreCase("block"))
                 link.portalIgnitionSource = PortalIgnitionSource.FIRE;
             else if (ignitionType.equalsIgnoreCase("fluid"))
-                link.portalIgnitionSource = PortalIgnitionSource.FluidSource(Registries.FLUID.get(new Identifier(ignitionSource)));
+                link.portalIgnitionSource = PortalIgnitionSource.FluidSource(Registry.FLUID.get(new Identifier(ignitionSource)));
             else if (ignitionType.equalsIgnoreCase("item"))
-                link.portalIgnitionSource = PortalIgnitionSource.ItemUseSource(Registries.ITEM.get(new Identifier(ignitionSource)));
+                link.portalIgnitionSource = PortalIgnitionSource.ItemUseSource(Registry.ITEM.get(new Identifier(ignitionSource)));
 
             if (returnDim != null) link.returnDimID = new Identifier(returnDim);
             return link;
